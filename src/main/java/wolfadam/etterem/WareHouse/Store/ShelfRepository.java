@@ -18,6 +18,9 @@ import wolfadam.etterem.WareHouse.datamodel.Shelf;
 public class ShelfRepository {
     private static final List<Shelf> shelves = new ArrayList<>();
     
+    public List<Shelf> getAllShelf(){
+        return shelves;
+    }
      
     /**
  * Polc lekérdezés név alapján

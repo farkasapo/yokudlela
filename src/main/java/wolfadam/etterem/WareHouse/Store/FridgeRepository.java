@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import org.apache.commons.beanutils.BeanUtils;
 import wolfadam.etterem.WareHouse.datamodel.Fridge;
+import wolfadam.etterem.WareHouse.datamodel.Shelf;
 
 /**
  *
@@ -18,6 +19,9 @@ import wolfadam.etterem.WareHouse.datamodel.Fridge;
 public class FridgeRepository {
     private static final List<Fridge> fridges = new ArrayList<>();
     
+     public List<Fridge> getAllFridge(){
+        return fridges;
+    }
      
     /**
  * Hütő lekérdezés név alapján
@@ -85,4 +89,21 @@ public class FridgeRepository {
         if(tmp.isEmpty()) return false;
         return FridgeRepository.fridges.remove(tmp.get());
     }    
+    
+      public void reduceCapacity(String fridgeName, int amount){ 
+           Optional<Fridge> opt = getOptionalByName(fridgeName);
+           Fridge actualFridge = opt.get();
+           boolean stillFits = actualFridge.getActualCapacity() >= amount;
+        if(!opt.isEmpty() && stillFits){
+            int newCapacity = actualFridge.getActualCapacity() - amount;
+            actualFridge.setActualCapacity(newCapacity);
+        }     
+    }
+    
+    public void freesUpCapacity(String fridgeName, int amount) {
+        Optional<Fridge> opt = getOptionalByName(fridgeName);
+        Fridge actualFridge = opt.get();
+        int newCapacity = actualFridge.getActualCapacity() + amount;
+        actualFridge.setActualCapacity(newCapacity);
+    }
 }
