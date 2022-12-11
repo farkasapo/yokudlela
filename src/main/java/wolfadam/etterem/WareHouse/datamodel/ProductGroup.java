@@ -4,6 +4,8 @@
  */
 package wolfadam.etterem.WareHouse.datamodel;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,10 +21,11 @@ import lombok.NoArgsConstructor;
 public class ProductGroup {
     private String name;
     private String description;
-    private Product product;
+    private List<Product> products;
     
     @Builder
     public ProductGroup(String name) {
         this.name = name;
+        this.products = new ArrayList<>();
     }
 }

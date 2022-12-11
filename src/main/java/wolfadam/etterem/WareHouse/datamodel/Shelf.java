@@ -4,6 +4,7 @@
  */
 package wolfadam.etterem.WareHouse.datamodel;
 
+import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -33,22 +34,6 @@ public class Shelf {
         this.capacity = newCapacity;   
     }
     
-    
-
-//    public int getActualCapacity() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    return this.capacity;
-//    }
-//
-//    public Object getName() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    public void setActualCapacity(int newCapacity) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-
-    
     public enum Storey {
     First,
     Second,
@@ -61,22 +46,20 @@ public class Shelf {
     Nineth    
     }
     
-    private String name;
-    private byte id;
+    private String name;   
     private int capacity;
-    private Storey storeyLevel;  
+    private Storey storeyLevel;
+    private List<Product> products;
     
     /**
      *
      * @param name
-     * @param id
      * @param capacity
      * @param storeyLevel
      */
     @Builder
-    public Shelf(String name, byte id, int capacity, Storey storeyLevel) {
-        this.name = name;
-        this.id = id;
+    public Shelf(String name, int capacity, Storey storeyLevel) {
+        this.name = name;        
         this.capacity = capacity;
         this.storeyLevel = storeyLevel;
     }

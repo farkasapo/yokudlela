@@ -25,7 +25,7 @@ public class Product {
     private String description;
     private int purchasePrice;
     private int amount;
-    private List<String> imageurls= new ArrayList<String>();
+    private List<String> imageurls= new ArrayList<>();
     private LocalDate expirationDate;
     private WareHouse warehouse;
     
