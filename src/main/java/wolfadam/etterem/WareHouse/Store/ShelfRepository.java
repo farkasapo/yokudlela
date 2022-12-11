@@ -41,6 +41,8 @@ public class ShelfRepository {
         return res;        
     }  
     
+    
+    
     public void reduceCapacity(String shelfName, int amount){ 
            Optional<Shelf> opt = getOptionalByName(shelfName);
            Shelf actualShelf = opt.get();
@@ -64,7 +66,7 @@ public class ShelfRepository {
  * @throws java.lang.Exception  ha már ilyen névvel létezik polc
  */    
     public void add(Shelf pShelf) throws Exception{
-        if(getOptionalByName(pShelf.getName()).isEmpty()){
+        if(getOptionalByName((String) pShelf.getName()).isEmpty()){
             ShelfRepository.shelves.add(pShelf);
         }
         else throw new Exception();
@@ -87,7 +89,7 @@ public class ShelfRepository {
  * @throws java.lang.reflect.InvocationTargetException
  */    
     public void modify(Shelf pShelf) throws IllegalAccessException, InvocationTargetException{
-        Optional<Shelf> tmp = getOptionalByName(pShelf.getName());
+        Optional<Shelf> tmp = getOptionalByName((String) pShelf.getName());
         if(!tmp.isEmpty()){
             BeanUtils.copyProperties(tmp.get(), pShelf);
         }
