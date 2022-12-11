@@ -17,6 +17,38 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode()
 @NoArgsConstructor
 public class Shelf {
+
+    public int getActualCapacity() {
+       
+    return this.capacity;
+    }
+    
+     public String getName() {
+       
+    return this.name;
+    }
+
+    public void setActualCapacity(int newCapacity) {
+        
+        this.capacity = newCapacity;   
+    }
+    
+    
+
+//    public int getActualCapacity() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    return this.capacity;
+//    }
+//
+//    public Object getName() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+//
+//    public void setActualCapacity(int newCapacity) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
+    
     public enum Storey {
     First,
     Second,
